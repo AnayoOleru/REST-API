@@ -8,8 +8,9 @@ router.get('/foods', function(req, res){
 
 // add a new food 
 router.post('/foods', function(req, res){
-    res.send({type:'POST'});
-})
+    console.log(req.body);
+    res.send({ type:'POST' })
+    });
 
 // update a list of food
 router.put('/foods/:id', function(req, res){
