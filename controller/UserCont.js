@@ -87,7 +87,42 @@ const User = {
     } catch(error) {
       return res.status(400).send(error);
     }
-  }
+  },
+  /**
+   * Get All Users
+   * @param {object} req 
+   * @param {object} res 
+   * @returns {object} users array
+   */
+  async getAll(req, res) {
+    const findAllQuery = 'SELECT * FROM users';
+    console.log(findAllQuery);
+    try {
+      const { rows, rowCount } = await dbQuery.query(findAllQuery);
+      console.log(rows);
+      return res.status(200).send({ rows, rowCount });
+    } catch(error) {
+      return res.status(400).send(error);
+    }
+  },
+  /**
+   * Get A User
+   * @param {object} req 
+   * @param {object} res
+   * @returns {object} user object
+   */
+  async getOne(req, res) {
+    const text = 'SELECT * FROM users WHERE owner_id = $1';
+    try {
+      const { rows } = await dbQuery.query(text, req.params.id);
+      if (!rows[0]) {
+        return res.status(404).send({'message': 'User not found'});
+      }
+      return res.status(200).send(rows[0]);
+    } catch(error) {
+      return res.status(400).send(error)
+    }
+  },
 }
 
-export default User;
+module.exports = User;

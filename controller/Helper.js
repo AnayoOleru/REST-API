@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 // new helper method with four objects
 const Helper = {
   /**
-   * Hash Password Method
+   * Hash Password Method: user for the first time registering
    * @param {string} password
    * @returns {string} returns hashed password
    */
@@ -12,7 +12,7 @@ const Helper = {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8))
   },
   /**
-   * comparePassword
+   * comparePassword: user for any other times he log into the system
    * @param {string} hashPassword 
    * @param {string} password 
    * @returns {Boolean} return True or False
@@ -21,7 +21,7 @@ const Helper = {
     return bcrypt.compareSync(password, hashPassword);
   },
   /**
-   * isValidEmail helper method
+   * isValidEmail helper method: for new user signing in for the first time validation
    * @param {string} email
    * @returns {Boolean} True or False
    */
@@ -43,4 +43,4 @@ const Helper = {
   }
 }
 
-export default Helper;
+module.exports = Helper;

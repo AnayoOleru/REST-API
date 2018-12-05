@@ -1,20 +1,38 @@
 const express = require('express');
 const router = express.Router();
 const Food = require('../controller/foodCont');
+require('babel-polyfill');
+const UserWithDb = require('../controller/UserCont');
+const Auth = require('../validation/Auth');
 
 // get a list of food
-router.get('/foods', Food.getAll);
+router.get('/foods', Auth.verifyToken, Food.getAll);
 
 // get one food
-router.get('/foods/:id', Food.getOne);
+router.get('/foods/:id', Auth.verifyToken, Food.getOne);
 
 // add a new food 
-router.post('/foods', Food.create);
+router.post('/foods', Auth.verifyToken, Food.create);
 
 // update a list of food
-router.put('/foods/:id', Food.update);
+router.put('/foods/:id', Auth.verifyToken, Food.update);
 
 // delete a food
-router.delete('/foods/:id', Food.delete);
+router.delete('/foods/:id', Auth.verifyToken, Food.delete);
+
+// new user can register
+router.post('/users', UserWithDb.create);
+
+// user can login
+router.post('/users/login', UserWithDb.login);
+
+//already registered user can be deleted 
+router.delete('/users/me', UserWithDb.delete);
+
+// get a list of users
+router.get('/users', UserWithDb.getAll);
+
+// get one user
+router.get('/users/:ownerId', Auth.verifyToken, UserWithDb.getOne);
 
 module.exports = router;
