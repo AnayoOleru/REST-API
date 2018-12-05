@@ -7,9 +7,9 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL
 });
 
-export default {
+const dbQuery = {
   /**
-   * DB Query
+   * DB Query: PRomise
    * @param {object} req
    * @param {object} res
    * @returns {object} object 
@@ -26,3 +26,5 @@ export default {
     })
   }
 }
+
+module.exports = dbQuery;

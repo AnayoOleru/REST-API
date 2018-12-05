@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "db-create": "node ./database.js createTables",
-    "delete-db": "node /database.js dropTables",
-    "refresh-db": "npm run db-create && npm run delete-db",
+    "db-FoodCreate": "node ./database.js createFoodTable",
+    "db-FoodDelete": "node ./database.js dropFoodTable",
+    "db-UserCreate": "node ./database.js createUserTable",
+    "db-UserDelete": "node ./database.js dropUserTable",
+    "db-FoodRefresh": "npm run db-FoodDelete && npm run db-FoodCreate",
+    "db-UserRefresh": "npm run db-UserDelete && npm run db-UserCreate",
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,9 +27,11 @@
   },
   "homepage": "https://github.com/AnayoOleru/REST-API#readme",
   "dependencies": {
+    "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
     "make-runnable": "^1.3.6",
     "moment": "^2.22.2",
     "pg": "^7.7.1",
@@ -34,6 +39,9 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-watch": "^2.0.7",
     "nodemon": "^1.18.7"
   }
 }
