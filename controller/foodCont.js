@@ -15,6 +15,7 @@ const Food = {
       foods(id, food_name, restaurant, created_date, modified_date)
       VALUES($1, $2, $3, $4, $5)
       returning *`;
+      
     const values = [
       uuidv4(),
       req.body.food_name,
@@ -22,7 +23,7 @@ const Food = {
       moment(new Date()),
       moment(new Date())
     ];
-
+    console.log(values);
     try {
       const { rows } = await dbQuery.query(text, values);
       return res.status(201).send(rows[0]);
@@ -103,12 +104,13 @@ const Food = {
       const { rows } = await dbQuery.query(deleteQuery, [req.params.id]);
       if(!rows[0]) {
         return res.status(404).send({'message': 'food not found'});
-      }
+      }else{
       return res.status(204).send({ 'message': 'deleted' });
+      }
     } catch(error) {
       return res.status(400).send(error);
     }
   }
 }
 
-export default Food;
+module.exports = Food;
