@@ -98,14 +98,14 @@ const dropUserTable = () => {
   /**
  * Create All Tables
  */
-const createAllTables = () => {
+const createAllTable = () => {
     createUserTable();
     createFoodTable();
   }
   /**
    * Drop All Tables
    */
-  const dropAllTables = () => {
+  const dropAllTable = () => {
     dropUserTable();
     dropFoodTable();
   }
@@ -117,12 +117,12 @@ const createAllTables = () => {
 
 // exports to be used in package.json to fire them up, 
 module.exports = {
-  createFoodTables,
-  createUserTables,
-  createAllTables,
+  createFoodTable,
+  createUserTable,
+  createAllTable,
   dropUserTable,
   dropFoodTable,
-  dropAllTables
+  dropAllTable
 };
 
 require('make-runnable');

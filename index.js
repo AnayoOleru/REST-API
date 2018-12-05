@@ -1,5 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+require('babel-polyfill');
+const UserWithDb = require('./controller/UserCont');
+const Auth = require('./validation/Auth');
 
 // setup express app
 const app = express();

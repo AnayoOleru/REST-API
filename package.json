@@ -8,6 +8,8 @@
     "db-FoodDelete": "node ./database.js dropFoodTable",
     "db-UserCreate": "node ./database.js createUserTable",
     "db-UserDelete": "node ./database.js dropUserTable",
+    "db-CreateFoodAndUser": "node ./database.js createAllTable",
+    "db-DeleteFoodAndUser": "node ./database.js deleteAllTable",
     "db-FoodRefresh": "npm run db-FoodDelete && npm run db-FoodCreate",
     "db-UserRefresh": "npm run db-UserDelete && npm run db-UserCreate",
     "start": "nodemon index.js",
