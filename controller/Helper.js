@@ -1,7 +1,8 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-// new helper method with four objects
+/* new helper method with four objects. The first two methods are using the syncronous 
+method for convenient sake, since hashing is intensive **/
 const Helper = {
   /**
    * Hash Password Method: user for the first time registering
