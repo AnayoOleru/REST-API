@@ -31,10 +31,10 @@ router.delete('/users/me', UserWithDb.delete);
 
 // ---------------------
 // get a list of users: admin
-router.get('/users', UserWithDb.getAll);
+router.get('/users', Auth.requireAuth, Auth.adminAuth, UserWithDb.getAll);
 
 // get one user' details
-router.get('/users/:ownerId', Auth.verifyToken, UserWithDb.getOne);
+router.get('/users/:ownerId');
 
 // edit current user details
 router.put('/users/:ownerId');
