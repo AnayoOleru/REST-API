@@ -29,10 +29,17 @@ router.post('/users/login', UserWithDb.login);
 //already registered user can be deleted 
 router.delete('/users/me', UserWithDb.delete);
 
-// get a list of users
-router.get('/users', UserWithDb.getAll);
+// ---------------------
+// get a list of users: admin
+router.get('/users', Auth.requireAuth, Auth.adminAuth, UserWithDb.getAll);
 
-// get one user
-router.get('/users/:ownerId', Auth.verifyToken, UserWithDb.getOne);
+// get one user' details
+router.get('/users/:ownerId');
+
+// edit current user details
+router.put('/users/:ownerId');
+
+// get all food made by a specific user
+router.get('/food/:ownerId');
 
 module.exports = router;
