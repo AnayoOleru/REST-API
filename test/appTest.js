@@ -1,42 +1,3 @@
-// const request = require('supertest')
-// const chai = require('chai');
-// const app = require('../index');
-
-
-// describe('GET \'/api/v1\'', () => {
-//     it('It should return  welcome message', (done) => {
-//       request(app)
-//         .get('/api/v1')
-//         // .end((err, res) => {
-//         //   expect(err).to.be.null;
-//         //   expect(res).to.have.headers;
-//         //   expect(res).to.have.status(200);
-//         //   expect(res).to.not.redirect;
-//         //   expect(res.body).to.be.an('object');
-//         //   done();
-//         // });
-//         .expect(200)
-//         .expect('object', done)
-//     });
-//   });
-
-// describe("/foods", function (){
-//     it("returns a list of food", function (done){
-//         request(app)
-//         .get("/api/v1/foods")
-//         // .end((err, res) => {
-//         //     expect(res.status).to.equal(401);
-//         //     expect(res.body).to.not.be.empty;
-//         //     done(err);
-//         // })
-//         .expect(401)
-//         .expect('array', done)
-        
-//     })
-// })
-
-
-
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const app = require('../index');
@@ -63,37 +24,9 @@ describe('GET \'/api/v1\'', () => {
   });
 });
 
-describe('GET /foods', () => {
-    it('should return all food order records', (done) => {
-      chai.request(app)
-        .get('/api/v1/foods')
-        .end((err, res) => {
-          expect(res.status).to.eql(200);
-          expect(res.body).to.not.be.empty; 
-          done(err);
-        });
-    });
-  });
-
-//   user can register
-describe('POST /users', () => {
-    it('It should return  welcome message', (done) => {
-      chai.request(app)
-        .post('/api/v1/users')
-        .end((err, res) => {
-          expect(err).to.be.null;
-          expect(res).to.have.headers;
-          expect(res).to.have.status(200);
-          expect(res).to.not.redirect;
-          expect(res.body).to.be.an('object');
-          done();
-        });
-    });
-  });
-
-//   describe(' /users', () => {
+// describe('GET /foods', () => {
 //     it('should return all food order records', (done) => {
-//       chai.request(routes)
+//       chai.request(app)
 //         .get('/api/v1/foods')
 //         .end((err, res) => {
 //           expect(res.status).to.eql(200);
@@ -102,3 +35,20 @@ describe('POST /users', () => {
 //         });
 //     });
 //   });
+
+// //   user can register
+// describe('POST /users', () => {
+//     it('It should return  welcome message', (done) => {
+//       chai.request(app)
+//         .post('/api/v1/users')
+//         .end((err, res) => {
+//           expect(err).to.be.null;
+//           expect(res).to.have.headers;
+//           expect(res).to.have.status(200);
+//           expect(res).to.not.redirect;
+//           expect(res.body).to.be.an('object');
+//           done();
+//         });
+//     });
+//   });
+
