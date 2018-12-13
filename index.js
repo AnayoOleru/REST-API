@@ -12,12 +12,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/v1',require('./routes/routes'));
 
-// app.get('/', function(req, res){
-//     console.log('GET request');
-//     res.send('name: Yoshi')
-// });
+app.get('/api/v1', (req, res) => res.status(200).send({
+    status: 'connection successful',
+    message: 'Welcome to SendIT!',
+  }));
 
 // listen for request
-app.listen(process.env.port || 4000, function(){
+module.exports = app.listen(process.env.port || 4000, function(){
     console.log('now listening for request');
 })
