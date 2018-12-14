@@ -13,7 +13,7 @@
     "db-FoodRefresh": "npm run db-FoodDelete && npm run db-FoodCreate",
     "db-UserRefresh": "npm run db-UserDelete && npm run db-UserCreate",
     "start": "nodemon index.js",
-    "test": "mocha --timeout 10000"
+    "test:server": "mocha --compilers js:@babel/register ./test/appTest.js"
   },
   "repository": {
     "type": "git",
@@ -42,15 +42,20 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.0",
     "@babel/preset-flow": "^7.0.0",
+    "@babel/register": "^7.0.0",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-watch": "^2.0.7",
     "chai": "^4.2.0",
     "coveralls": "^3.0.2",
+    "eslint": "^5.10.0",
+    "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
     "mocha-lcov-reporter": "^1.3.0",
     "nodemon": "^1.18.7",
+    "nyc": "^13.1.0",
     "supertest": "^3.3.0"
   }
 }
