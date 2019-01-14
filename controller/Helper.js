@@ -31,12 +31,12 @@ const Helper = {
   },
   /**
    * Gnerate Token
-   * @param {string} id
+   * @param {string} id as payload
    * @returns {string} token
    */
   generateToken(id) {
     const token = jwt.sign({
-      userId: id
+      userId: id //payload
     },
       process.env.SECRET, { expiresIn: '7d' }
     );

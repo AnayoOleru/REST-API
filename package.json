@@ -14,7 +14,7 @@
     "db-UserRefresh": "npm run db-UserDelete && npm run db-UserCreate",
     "start": "nodemon index.js",
     "test:server": "mocha --compilers js:@babel/register ./test/appTest.js",
-    "test": " nyc ---reporter=html --reporter=text mocha --timeout 10000 --exit --require babel-register test/*",
+    "test": "nyc ---reporter=html --reporter=text mocha --timeout 10000 --exit --require babel-register test/* | coveralls",
     "coverage": "nyc report ---reporter=text-lcov | coveralls"
   },
   "repository": {

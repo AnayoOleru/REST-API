@@ -32,6 +32,7 @@ const Food = {
       const { rows } = await dbQuery.query(text, values);
       return res.status(201).send(rows[0]);
     } catch(error) {
+      console.log(errors);
       return res.status(400).send(error);
     }
   },
